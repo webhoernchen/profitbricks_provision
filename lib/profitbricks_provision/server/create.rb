@@ -5,7 +5,7 @@ module ProfitBricksProvision
       private
       def create_volumes
         unless configured_volumes = server_config['volumes']
-          error("No volumes specified! Please specify \"profitbricks\": {\"server\": \"volumes\": {\"root\": SIZE_IN_GB}} in your node!")
+          error("No volumes specified! Please specify volumes in your config!")
         end
 
         threads = configured_volumes.collect do |hd_name, size_in_gb|

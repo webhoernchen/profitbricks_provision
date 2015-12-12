@@ -104,7 +104,7 @@ module ProfitBricksProvision
     end
 
     def find_and_update_server
-      error("No server name specified! Please specify \"profitbricks\": {\"server\": \"name\"} in your node!") unless server_name
+      error("No server name specified! Please specify the server in your config!") unless server_name
       log "Locate Server #{server_name}"
       
       server = dc.server_by_name(server_name)
