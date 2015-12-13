@@ -11,6 +11,6 @@ end
   require "profitbricks_provision/extension/profitbricks/#{e}"
 end
 
-%w(config server_list).each do |s|
+%w(config server_list server_get_ip).each do |s|
   require "profitbricks_provision/#{s}"
 end
