@@ -3,18 +3,14 @@ require 'profitbricks'
 module ProfitBricksProvision
 end
 
+%W(profitbricks model has_location server datacenter volume nic location image lan request ipblock firewall location).each do |e|
+  require "profitbricks_provision/extension/profitbricks/#{e}"
+end
 
-require 'profitbricks_provision/extension/profitbricks/profitbricks'
-require 'profitbricks_provision/extension/profitbricks/model'
-require 'profitbricks_provision/extension/profitbricks/has_location'
-require 'profitbricks_provision/extension/profitbricks/server'
-require 'profitbricks_provision/extension/profitbricks/datacenter'
-require 'profitbricks_provision/extension/profitbricks/volume'
-require 'profitbricks_provision/extension/profitbricks/nic'
-require 'profitbricks_provision/extension/profitbricks/location'
-require 'profitbricks_provision/extension/profitbricks/image'
-require 'profitbricks_provision/extension/profitbricks/lan'
-require 'profitbricks_provision/extension/profitbricks/request'
-require 'profitbricks_provision/extension/profitbricks/ipblock'
-require 'profitbricks_provision/extension/profitbricks/firewall'
-require 'profitbricks_provision/extension/profitbricks/location'
+%w(base config create data_center provision ssh_commands stop update).each do |s|
+  require "profitbricks_provision/server/#{s}"
+end
+
+%w(config).each do |s|
+  require "profitbricks_provision/#{s}"
+end
