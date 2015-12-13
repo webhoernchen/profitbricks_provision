@@ -4,7 +4,11 @@ module ProfitBricksProvision
 
       private
       def log(m)
-        ui.info m
+        if ui
+          ui.info m
+        else
+          print "#{m}\n"
+        end
       end
 
       def log_error(m)
@@ -12,8 +16,16 @@ module ProfitBricksProvision
       end
 
       def error(m, options={})
-        ui.error m
+        if ui
+          ui.error m
+        else
+          print "#{m}\n"
+        end
         exit 1 if !options.has_key?(:abort) || options[:abort]
+      end
+
+      def ui
+        ProfitBricksProvision::Config.ui
       end
     end
   end

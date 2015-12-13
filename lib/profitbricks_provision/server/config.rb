@@ -16,12 +16,8 @@ module ProfitBricksProvision
       end
 
       private
-      def _profitbricks_config
-        raise 'Please configure profitbricks_config!'
-      end
-
       def profitbricks_config
-        @profitbricks_config ||= _profitbricks_config
+        ProfitBricksProvision::Config.config
       end
 
       def server_config
@@ -49,7 +45,7 @@ module ProfitBricksProvision
       end
 
       def boot_image_name
-        @image_name || raise 'Please configure boot_image_name'
+        @image_name || raise('Please configure boot_image_name')
       end
 
       def boot_image
@@ -71,7 +67,7 @@ module ProfitBricksProvision
       end
 
       def ssh_user
-        @ssh_user || raise 'Please configure ssh_user'
+        @ssh_user || raise('Please configure ssh_user')
       end
     end
   end

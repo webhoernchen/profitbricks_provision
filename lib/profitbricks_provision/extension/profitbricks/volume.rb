@@ -2,7 +2,7 @@ module ProfitBricksProvision
   module Extension
     module Profitbricks
       module Volume
-        LVS_ATTRIBUTES = ProfitBricksProvision::Base::LVS_ATTRIBUTES
+        LVS_ATTRIBUTES = ProfitBricksProvision::Server::Config::LVS_ATTRIBUTES
 
         def self.included(base)
           base.class_eval do
